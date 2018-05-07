@@ -5,8 +5,8 @@ var underscore = require('underscore');
 
 var template = underscore.template(fs.readFileSync('./ics.template').toString());
 
-var port = process.env['PORT'] || 7033;
-var host = process.env['HOST'] || 'ics.movableink-dmz.com';
+var port = process.env['PORT'] || 443;
+var host = process.env['HOST'] || 'ics.itsolver.net;
 
 http.createServer(function(req, res) {
   var params = url.parse(req.url, true).query;
