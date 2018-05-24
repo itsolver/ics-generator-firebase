@@ -1,3 +1,4 @@
+const functions = require('firebase-functions');
 var http = require('http');
 var url = require('url');
 var fs = require('fs');
@@ -6,7 +7,9 @@ var underscore = require('underscore');
 var template = underscore.template(fs.readFileSync('./ics.template').toString());
 
 var port = process.env['PORT'] || 443;
-var host = process.env['HOST'] || 'ics.itsolver.net;
+var host = process.env['HOST'] || 'ics.itsolver.net';
+
+
 
 http.createServer(function(req, res) {
   var params = url.parse(req.url, true).query;
@@ -43,11 +46,11 @@ console.log("Listening on port " + port + ", host " + host);
 
 function formatDatetime(d) {
   return d.getFullYear() + pad2(d.getMonth() + 1) + pad2(d.getDate()) + "T" + pad2(d.getHours()) + pad2(d.getMinutes()) + pad2(d.getSeconds());
-};
+}
 
 function formatDate(d) {
   return d.getFullYear() + pad2(d.getMonth() + 1) + pad2(d.getDate());
-};
+}
 
 function pad2(i) {
   if(i < 10) {
@@ -56,3 +59,5 @@ function pad2(i) {
     return "" + i;
   }
 };
+
+export const app = functions.https.onRequest(app);
