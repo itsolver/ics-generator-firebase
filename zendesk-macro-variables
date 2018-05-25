@@ -1,0 +1,14 @@
+# convert duration from minutes to seconds
+{% assign duration = {{ticket.ticket_field_360000038016}} | times: 60 %}
+
+# calculate end time
+ {% assign endtime = {{ticket.ticket_field_360000037976}} | date: "%s" | plus: {{duration}} | date: "%T" %}
+
+# assign start date time
+{% asign startdatetime = {{ticket.ticket_field_360000037956 | date: "%y/%m/%d"}}%20{{ticket.ticket_field_360000037976 | date: "%T"}} %}
+
+# assign end date time
+{% assign enddatetime = {{ticket.ticket_field_360000037956 | date: "%y/%m/%d" %}
+
+# assign the ics url and url_encode 
+{% assign icsurl = "http://ics.itsolver.net/calendar.ics?tz=Australia/Brisbane&start={{startdatetime}}&end={{enddatetime}}&summary=​{{ticket.title}}&description={% if {{ticket.ticket_field_option_title_22726236}} %}{{ticket.ticket_field_option_title_22726266}} {{ticket.ticket_field_option_title_22726236}}{% else %}{{ticket.ticket_field_option_title_22594308}}{% endif %}&location={{ticket.ticket_field_360000038096}} | url_encode %}
