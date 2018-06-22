@@ -14,8 +14,8 @@ DTSTAMP:<%= now %>
 UID:<%= uid %><% if (allDay) { %>
 DTSTART;VALUE=DATE:<%= startDate %>
 DTEND;VALUE=DATE:<%= endDate %><% } else { %>
-DTSTART;TZID=Etc/GMT:<%= startDate %>
-DTEND;TZID=Etc/GMT:<%= endDate %><% } %>
+DTSTART;TZID=<%= timezone %>:<%= startDate %>
+DTEND;TZID=<%= timezone %>:<%= endDate %><% } %>
 SUMMARY:<%= summary %>
 DESCRIPTION:<%= description %>
 LOCATION:<%= location %><% if(rrule) { %>
