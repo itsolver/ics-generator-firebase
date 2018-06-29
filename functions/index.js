@@ -76,7 +76,7 @@ function formatDate(d) {
 }
 
 function sanitizeFileName(filename) {
-  return filename.replace(/[^A-Za-z0-9_\-.]/g, ()=>'');
+  return filename.replace(/[^A-Za-z0-9_\-\.]/g, ()=>'');
 }
 
 function pad2(i) {
