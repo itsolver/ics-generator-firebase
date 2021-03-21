@@ -2,7 +2,7 @@
   "name": "ics-generator",
   "description": "Generate calendar files",
   "engines": {
-    "node": "12"
+    "node": "14"
   },
   "scripts": {
     "lint": "eslint .",
